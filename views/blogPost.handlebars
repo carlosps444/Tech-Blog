@@ -1,0 +1,24 @@
+{{> layouts/main}}
+{{> partials/navbar}}
+
+<h1>{{blogPost.title}}</h1>
+<p>Posted by: {{blogPost.User.username}}</p>
+<p>{{blogPost.createdAt}}</p>
+<p>{{blogPost.content}}</p>
+
+<h2>Comments</h2>
+{{#if blogPost.Comments.length}}
+<ul>
+    {{#each blogPost.Comments}}
+        <li>{{this.content}} - {{this.createdAt}}</li>
+    {{/each}}
+</ul>
+{{else}}
+    <p>No Comments Yet</p>
+{{/if}}
+
+<h3>Add Comment</h3>
+<form action="/blog/post/{{blogPost.id}}/comment" method="POST">
+    <textarea name="content" rows="4" cols="50" required></textarea><br>
+    <button type="submit">Submit</button>
+</form>

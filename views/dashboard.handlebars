@@ -1,0 +1,16 @@
+{{> layouts/main}}
+{{> partials/navbar}}
+
+<h1>Dashboard</h1>
+
+<a href="/blog/dashboard/add">Add New Blog Post</a>
+
+{{#if blogPosts.length}}
+<ul>
+    {{#each blogPosts}}
+    <li><a href="/blog/dashboard/post/{{this.id}}">{{this.title}}</a></li>
+    {{/each}}
+</ul>
+{{else}}
+    <p>upcoming posts</p>
+{{/if}}

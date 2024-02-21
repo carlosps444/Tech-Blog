@@ -1,0 +1,14 @@
+{{> layouts/main}}
+{{> partials/navbar}}
+
+<h1>Welcome to our Tech Blog</h1>
+
+{{#if blogPosts.length}}
+<ul>
+    {{#each blogPosts}}
+        <li><a href="/blog/post/{{this.id}}">{{this.title}}</a> - {{this.createdAt}}</li>
+    {{/each}}
+</ul>
+{{else}}
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti dignissimos necessitatibus hic esse, amet, quam minus eveniet omnis atque commodi odit quas exercitationem officiis, pariatur aliquam? Amet quidem earum iusto?</p>
+{{/if}}
